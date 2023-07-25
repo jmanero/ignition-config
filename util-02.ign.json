@@ -1,0 +1,28 @@
+{
+  "ignition": {
+    "config": {
+      "merge": [
+        {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/6SOMUsEMRBG+/yKgauTqGATuO4sbwuvFIsxmT2D2RnJjCsH/njZVXTB0qk+Hszjee/djL0iW4Ixi7qZulbhBNfhNlw5pyYdz5QcwFgb6TIAdju4Y3xqBNNhOK3Iwyvac4JIlqNe1GgqsZNKm6mELDyGEqfCuu71BSALG7F9W5er3CpTgo8fAvBw/6V53LDjW7OaUe0wnPYX0r8NA9m79JcjMp6px/8VZGGmbFV4G/FLw+Ld37jPAAAA//93O5sOUQEAAA=="
+        },
+        {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/1SRQW/aTBCG7/4V8yXHT7YABSKQKgGhJYmIS5pWaXIoGrxjvGG9Q3d2TeHXVwuhETfL8+jdmedN0zRp0Gm0fgBlwZI05ESzHUA7u8payQZFtmqQAAQhJ/ED4PISvlHNDYGvCBSVGIyHwnBQB+wApWCxpgEU7OjwA0AqDkYt6I+W+BwaoeQjcGOwINhqX8GOgxMy5X9nSW81WnL8HrZyHDbvCx0pCeo0FKkWGHzFTu9JLda0OyMvZJ2KVCmpTrfb7g95Q1akygquYTQajaY2d7Of+R5v2uZ1ctfOv3/uPk7729fn7r7orMJLp+8jdzfbWdOf3bSa6/kDraYvD7373vOP8X1veVW1xvn1786Xt0fVn3+d/B/58W2+xwl/Op0yZFxvmVVmuEBzkSSyE0/10bfV/sP3RAsuDQGWntwyOAvaikdj0Gu2wCU8Pd1CvBNKxzXU5DFV6DGDefAHoccpLmNvv87E/guNUiI1jKVlQq7Rxak8snEBdertbwAAAP//GAEFszoCAAA="
+        }
+      ]
+    },
+    "version": "3.4.0"
+  },
+  "storage": {
+    "files": [
+      {
+        "path": "/etc/hostname",
+        "contents": {
+          "compression": "",
+          "source": "data:,util-02.local"
+        }
+      }
+    ]
+  }
+}

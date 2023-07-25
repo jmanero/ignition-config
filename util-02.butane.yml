@@ -1,0 +1,16 @@
+---
+variant: fcos
+version: 1.5.0
+
+ignition:
+  config:
+    merge:
+      - local: ./share/mdns.butane.yml
+      - local: ./share/users.butane.yml
+
+storage:
+  files:
+    ## Set static hostname
+    - path: /etc/hostname
+      contents:
+        inline: util-02.local
