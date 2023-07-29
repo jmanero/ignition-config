@@ -20,7 +20,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Build netboot Image
-      id: build-netboot
+      id: build
       uses: redhat-actions/buildah-build@v2
       with:
         image: jmanero/netboot
@@ -32,8 +32,8 @@ jobs:
       id: push
       uses: redhat-actions/push-to-registry@v2
       with:
-        image: ${{ steps.build-bitcoind-exporter.outputs.image }}
-        tags: ${{ steps.build-bitcoind-exporter.outputs.tags }}
+        image: ${{ steps.build.outputs.image }}
+        tags: ${{ steps.build.outputs.tags }}
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
