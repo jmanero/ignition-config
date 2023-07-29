@@ -1,0 +1,16 @@
+{
+  "ignition": {
+    "version": "3.4.0"
+  },
+  "storage": {
+    "files": [
+      {
+        "path": "/etc/containers/networks/internal.json",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/3SRz26zMBDE7zyFxTkQe/m7fo7v9FVVtOB1ikoMAidRFeXdK2ylaqv0wmF2+M1495YIkTo6capFOjjPi6Mx3W3qYDYNCuYOWylLwMZwVRIzkylrw1LaihUZlJVSiI2BDqGore16xFYiAzNFllmGCy8br1sGc+SoOvbXaXk/hFxLfSgxT+ZELvvZpV+YPMdCEopMNhnAP4VagoYyR4mqUFCo/9G+njvHfk21eEmEEOIWvl+DDaMayKHKFbS53EMR/guWI3m+0scvj0rD/L77i2cNtdo2baH7UlpdIrZa7+vyKfip+RGRCPEaDzBf6gM76sbwcr+cOeqP1WhhaVyjaNz61DvT6TDNfpjcto5Y/Ns53qbVZ+PU07il35P7ZwAAAP//KmfE0xECAAA="
+        }
+      }
+    ]
+  }
+}

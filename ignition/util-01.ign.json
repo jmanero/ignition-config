@@ -1,0 +1,24 @@
+{
+  "ignition": {
+    "config": {
+      "merge": [
+        {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/1ySy3KqQBCG93kKiq2JeJR4ySkWICbiJSpRUUMWAzRKhBkyF4Sc8t1PoSaxwobp/runp/r7/91IkhxtccQjguUHqYwlSfYJDqPtdyxJcgJ0C/KD9HpJSN/SpSFJKTB2vkXefkapfHtdwIigfnmBHCCOHv56iEFTve2rzNLPX1dp5TZzqDk2zECxl10y/mOliep4RQz7Zi94Ofi71TK3K7ldi+/tmTLpPPKEN4b9+Sjt82mghKC21KHlzMm437WGhrCZbRZdEicz7jUXSyh6Txbzi04+HyGThosFROYmevYHEXEgY02noYyHeuUwbqx3u3Z3beShOlxRYQ0qjWd18JQ4qeelVmZtewX9HJPp/WFeUyuN1cto7YzacbzpDDy+r6fBXpmy+3fEEUX9Qu0YdRjUK5PRB2fefkjrPq8dRny5VtLpvjs9bGrt0CCitk1W2d43evZq1LL7TytzIsSHwA110s5qmVjRR2ea92e6riiVd2Oz27VmPV3XNU3+3vXxcno7/Y9nCHIG9ItNo6pWa2X9SZNZwTgkwQ97gSPOrkj/cC5twQGfVPl1gSP+5mITmE+jtPSPZiKOpCWJRQKlECIRcxNSwAFgPwKmYeLiLsFhHPmcaSIhAvMqR3QL3MUGhISCFhMfxXchu+SlX1V6yIFqGaLVU97FLn4dl6c3Fzs7xDUlgExhgVeGQEFTMkSV0nQunhcpaJBz9dRlYcZRHJd9CHMIjOL3bBdfmVgGjLwYyk1xKuBKwCg5OTtD9K4cdH7ZF5IzkBLH8eZ48z8AAP//ntfuNnEDAAA="
+        }
+      ]
+    },
+    "version": "3.4.0"
+  },
+  "storage": {
+    "files": [
+      {
+        "path": "/etc/hostname",
+        "contents": {
+          "compression": "",
+          "source": "data:,util-01.local"
+        }
+      }
+    ]
+  }
+}

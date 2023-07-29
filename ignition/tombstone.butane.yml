@@ -5,8 +5,7 @@ version: 1.5.0
 ignition:
   config:
     merge:
-      - local: ./share/mdns.butane.yml
-      - local: ./share/users.butane.yml
+      - local: ./roles/default.ign.json
 
 boot_device:
   mirror:
@@ -22,7 +21,7 @@ storage:
       path: /var
       format: ext4
       wipe_filesystem: false
-      with_mount_unit: true
+      with_mount_unit: false
 
   files:
     ## Set static hostname

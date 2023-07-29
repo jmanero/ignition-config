@@ -7,7 +7,7 @@ passwd:
     - name: core
       should_exist: false
 
-    ## Replace with yourself!
+    ## Replace with yourself... or leave it if you'd like me to be able to log into your hosts too.
     - name: jmanero
       groups:
         - sudo

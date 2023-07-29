@@ -1,0 +1,10 @@
+---
+variant: fcos
+version: 1.5.0
+
+storage:
+  files:
+    ## Enable mDNS
+    - path: /etc/containers/networks/internal.json
+      contents:
+        local: ./share/internal.cni.json

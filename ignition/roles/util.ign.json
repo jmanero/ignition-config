@@ -1,0 +1,22 @@
+{
+  "ignition": {
+    "config": {
+      "merge": [
+        {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/7xRsWrDMBDd/RVCoM1Ipm4Wbylek6EdSwchXVxR+xR0l5RQ/O9Ftmt3KHTLpHtPd/fe474KIWToMHCIKBuRsRDyColmQtb6UVeyEGIscy9xTLaDrfUUeiDZiNcJioWevs6W3/MKA+wM3Yhh8CYBxf4KXruIJ+3N4JGmWpbbpIvIgEyrzMoP5wT04+3XSLYWL8llZ9Jbtk2pdk/Ps5jataraHy49B2eJ2+OLqtsbkKr2ct0wLtVY/pPkCPwZ08fBou0gmXvkcBERXL7RHGXDOuuqun34O8v0vuXrFWPxHQAA//+jBZhh7QEAAA=="
+        }
+      ]
+    },
+    "version": "3.4.0"
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nDescription=Data Volume\nDefaultDependencies=no\nConflicts=umount.target\nBefore=local-fs.target umount.target\nAfter=var.mount\n\n[Mount]\nWhat=/dev/sdb\nWhere=/var/data\nType=ext4\n\n[Install]\nWantedBy=local-fs.target\n",
+        "enabled": true,
+        "name": "var-data.mount"
+      }
+    ]
+  }
+}

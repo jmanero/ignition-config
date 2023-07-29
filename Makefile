@@ -1,16 +1,14 @@
-## Prepare ignition JSON configurations from butane YAML configurations
-BUTANE_YML    := $(wildcard *.butane.yml)
-IGNITION_JSON := $(BUTANE_YML:butane.yml=ign.json)
 
-default: ignition
+SUBMAKES += ignition
+SUBMAKES += ipxe
+SUBMAKES += netboot
 
-.PHONY: ignition
-ignition: $(IGNITION_JSON)
+.PHONY: all clean $(SUBMAKES)
 
-.PHONY: clean
+all: $(SUBMAKES)
+
 clean:
-	-rm $(IGNITION_JSON)
+	for sub in $(SUBMAKES); do $(MAKE) -C $$sub clean; done
 
-## Compile ignition JSON from butane files
-%.ign.json: %.butane.yml $(wildcard share/*.butane.yml)
-	butane --files-dir $(@D) --output $@ --pretty $<
+$(SUBMAKES):
+	$(MAKE) -C $@

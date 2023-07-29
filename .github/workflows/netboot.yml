@@ -1,0 +1,39 @@
+---
+name: netboot
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+    inputs: {}
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  image:
+    name: Build and Push Image
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build netboot Image
+      id: build-netboot
+      uses: redhat-actions/buildah-build@v2
+      with:
+        image: jmanero/netboot
+        tags: latest 0.1 0.1-${{ github.sha }}
+        context: netboot
+        containerfiles: netboot/Containerfile
+
+    - name: Push netboot Image to Registry
+      id: push
+      uses: redhat-actions/push-to-registry@v2
+      with:
+        image: ${{ steps.build-bitcoind-exporter.outputs.image }}
+        tags: ${{ steps.build-bitcoind-exporter.outputs.tags }}
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}

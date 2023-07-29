@@ -1,0 +1,30 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "shouldExist": false
+      },
+      {
+        "groups": [
+          "sudo"
+        ],
+        "name": "jmanero",
+        "sshAuthorizedKeys": [
+          "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILynl9LC0v7PMegGYM6J6WUBJ6b4h0BN7q2FjQd9POD+AAAABHNzaDo= jmanero@oakwood.local"
+        ]
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "enabled": false,
+        "name": "afterburn-sshkeys@core.service"
+      }
+    ]
+  }
+}
