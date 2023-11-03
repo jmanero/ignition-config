@@ -1,13 +1,23 @@
 ---
 variant: fcos
-version: 1.4.0
+version: 1.5.0
+
+###
+## Default configuration for cloud environments
+###
+storage:
+  ## Keep selinux re-labeling from failing on these missing paths
+  directories:
+    - path: /etc/systemd/system-preset
+  files:
+    - path: /etc/systemd/system-preset/20-ignition.preset
+
 passwd:
   users:
     ## Remove the default cloud user
     - name: core
       should_exist: false
 
-    ## Replace with yourself... or leave it if you'd like me to be able to log into your hosts too.
     - name: jmanero
       groups:
         - sudo
@@ -16,6 +26,6 @@ passwd:
 
 systemd:
   units:
-    ## Disable afterburn installation of SSH keys from meta-data. Put your keys above ^
+    ## Disable afterburn installation of SSH keys from meta-data for metal platforms
     - name: afterburn-sshkeys@core.service
       enabled: false

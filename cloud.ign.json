@@ -1,6 +1,6 @@
 {
   "ignition": {
-    "version": "3.3.0"
+    "version": "3.4.0"
   },
   "passwd": {
     "users": [
@@ -16,6 +16,18 @@
         "sshAuthorizedKeys": [
           "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILynl9LC0v7PMegGYM6J6WUBJ6b4h0BN7q2FjQd9POD+AAAABHNzaDo= jmanero@oakwood.local"
         ]
+      }
+    ]
+  },
+  "storage": {
+    "directories": [
+      {
+        "path": "/etc/systemd/system-preset"
+      }
+    ],
+    "files": [
+      {
+        "path": "/etc/systemd/system-preset/20-ignition.preset"
       }
     ]
   },

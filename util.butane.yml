@@ -1,0 +1,25 @@
+---
+variant: fcos
+version: 1.5.0
+
+###
+## Configure basic utility hosts with a single attached data disk
+###
+ignition:
+  config:
+    merge:
+      - local: ./default.ign.json
+
+storage:
+  filesystems:
+    - device: /dev/sdb
+      format: ext4
+      path: /var/data
+      wipe_filesystem: false
+      with_mount_unit: false
+
+systemd:
+  units:
+    ## Mount /dev/sda at /var/data
+    - name: var-data@sdb.mount
+      enabled: true

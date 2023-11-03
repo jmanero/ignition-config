@@ -1,0 +1,36 @@
+{
+  "ignition": {
+    "config": {
+      "merge": [
+        {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/7xUb0/bPhB+309hWcqrX5qGQECt9JNICWMwmsH+iMG0F8a+JqaJ3fmcdu3U7z65aWmhoEnTtFftnS/3+Lnn8f1sEUJlrqSVWtEecTEhdAIGmwTdDw6CkLYIWfiudswQp2JTWSMYpD3ydRmSVXp5pFgFrgPXBqi/yWOh61Kc/pBoaY8MWYmwOlz4u11yo+vxNkLToxaaPia++buoDxVTYPQTYCyS2hbayDmIdzDb7TpqIxZtEFEc73WP9RgUYhFwXZEkSZIzlZnLL9mcneyVd+n5XvbpNL4+607vbuI5j/L6NupaV3d+OVNl9/IknBxdDSA/ux0cXhzefO5fHN4fFGE/O/oevXm4Ft2r9+l/rr7/NpuzVP9PVnc+1mw01VoEpeas3KK5HlNrHTWaoNWG5bARRUgD3Goj4RVpxswWbkgdsLyDM7RQidVve2wAwdKnWM0U6VCWf96yE4XttdWCZygvCK8nYKZGWsfLmhr832AZQF1OQARcq2EgOpVQuPy/bQGulQVl8XFWj/nK3Wht+q1P3Hx1bfjSVIJZ1vO9uP+hAfPi1AuTQV1ayRnaNPvo7aczQC9MNrIt/gLJDOxUm9GAKZaD6fwLilwrBdyJ1bDcxIHD9fbT6GWaz93Z6LO1MpS0r5gIFLsvQazXwgvPmg0tmPvaKPdSRzDDY7deAgQzkRzo7h1ai9avAAAA//8zFcJi5QQAAA=="
+        }
+      ]
+    },
+    "version": "3.4.0"
+  },
+  "storage": {
+    "filesystems": [
+      {
+        "device": "/dev/sda",
+        "format": "ext4",
+        "path": "/var/data",
+        "wipeFilesystem": false
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nDescription=Data Volume\nDefaultDependencies=no\nConflicts=umount.target\nBefore=local-fs.target umount.target\nAfter=var.mount\n\n[Mount]\nWhat=/dev/%i\nWhere=/var/data\nType=ext4\n\n[Install]\nWantedBy=local-fs.target\n",
+        "enabled": false,
+        "name": "var-data@.mount"
+      },
+      {
+        "enabled": true,
+        "name": "var-data@sda.mount"
+      }
+    ]
+  }
+}

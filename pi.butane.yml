@@ -1,0 +1,25 @@
+---
+variant: fcos
+version: 1.5.0
+
+###
+## Configure raspberry pis with an attached data disk
+###
+ignition:
+  config:
+    merge:
+      - local: ./default.ign.json
+
+storage:
+  filesystems:
+    - device: /dev/sda
+      format: ext4
+      path: /var/data
+      wipe_filesystem: false
+      with_mount_unit: false
+
+systemd:
+  units:
+    ## Mount /dev/sda at /var/data
+    - name: var-data@sda.mount
+      enabled: true

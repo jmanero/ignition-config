@@ -1,0 +1,58 @@
+{
+  "ignition": {
+    "version": "3.4.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "shouldExist": false
+      },
+      {
+        "groups": [
+          "sudo"
+        ],
+        "name": "jmanero",
+        "sshAuthorizedKeys": [
+          "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILynl9LC0v7PMegGYM6J6WUBJ6b4h0BN7q2FjQd9POD+AAAABHNzaDo= jmanero@oakwood.local"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "directories": [
+      {
+        "path": "/etc/systemd/system-preset"
+      }
+    ],
+    "files": [
+      {
+        "path": "/etc/systemd/system-preset/20-ignition.preset"
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/systemd/resolved.conf.d/mdns.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:,%5BResolve%5D%0AMulticastDNS%3Dyes%0A"
+        }
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/NetworkManager/conf.d/mdns.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:,%5Bconnection%5D%0Aconnection.mdns%3D2%0A"
+        }
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "enabled": false,
+        "name": "afterburn-sshkeys@core.service"
+      }
+    ]
+  }
+}
