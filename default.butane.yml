@@ -19,6 +19,7 @@ storage:
         inline: |
           [Resolve]
           MulticastDNS=yes
+
     - path: /etc/NetworkManager/conf.d/mdns.conf
       overwrite: true
       contents:

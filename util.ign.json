@@ -4,7 +4,7 @@
       "merge": [
         {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/7xUb0/bPhB+309hWcqrX5qGQECt9JNICWMwmsH+iMG0F8a+JqaJ3fmcdu3U7z65aWmhoEnTtFftnS/3+Lnn8f1sEUJlrqSVWtEecTEhdAIGmwTdDw6CkLYIWfiudswQp2JTWSMYpD3ydRmSVXp5pFgFrgPXBqi/yWOh61Kc/pBoaY8MWYmwOlz4u11yo+vxNkLToxaaPia++buoDxVTYPQTYCyS2hbayDmIdzDb7TpqIxZtEFEc73WP9RgUYhFwXZEkSZIzlZnLL9mcneyVd+n5XvbpNL4+607vbuI5j/L6NupaV3d+OVNl9/IknBxdDSA/ux0cXhzefO5fHN4fFGE/O/oevXm4Ft2r9+l/rr7/NpuzVP9PVnc+1mw01VoEpeas3KK5HlNrHTWaoNWG5bARRUgD3Goj4RVpxswWbkgdsLyDM7RQidVve2wAwdKnWM0U6VCWf96yE4XttdWCZygvCK8nYKZGWsfLmhr832AZQF1OQARcq2EgOpVQuPy/bQGulQVl8XFWj/nK3Wht+q1P3Hx1bfjSVIJZ1vO9uP+hAfPi1AuTQV1ayRnaNPvo7aczQC9MNrIt/gLJDOxUm9GAKZaD6fwLilwrBdyJ1bDcxIHD9fbT6GWaz93Z6LO1MpS0r5gIFLsvQazXwgvPmg0tmPvaKPdSRzDDY7deAgQzkRzo7h1ai9avAAAA//8zFcJi5QQAAA=="
+          "source": "data:;base64,H4sIAAAAAAAC/7xU0W7qRhB95yssSzwVbEJCrkCyhIlv09wGetMmTZOQh83uGG+wZ93dsQlU/Hu1GAKBpJGqqk/2zM7O2Tnn7P5VcxxXTlCSVOj2HBs7jluCNlXCPfZOvJZbc5xlw9bmzJiZ2FYWBrRxe87DKnTW6dUSsgxsB640uI1t3iSqSMXXF2nI7TkxSw2sF5eNwy4TrYp8F6HqUQjlviYeG4eozxlD0OoNsEnCghKl5QLEzzA/7DptGpM0QbQ7naNuX+WAxiQeV5kThmF4jiN9+cdowc6O0vvo4mh0/bVzdd6d3d92Frw9Ke7aXbJ1F5dzTLuXZ63yy/chTM7vhqffTm9vBt9On06S1mD05c/2j89Xovv9l+gHWz/4abRgkQqc9Zn7ik1nSgkvVZylO2NuaKptokoTQ0qzCWxFEVIDJ6UlfCBNziixJPlA3DdzQ5CJ9beZazBA7lusikU3lum/b+m3W82N1bw9lHeEVyXomZZk5yJdQOMTLA1GpSUIjyuMPeFnAs3qf9cCXCEBknnl6jWf2RNtTL+zxfKrCs1XphKMWK9R7wx+rcDqnajeCodFSpIzQ9Hot/pxNAdTb4Vb2Zb/wZAjoJnS0yFDNgHt/x8jcoUI3IpVTbmNPYtbP47a74+5785Kn50nAyV9YCJA9pSC2DwL71xrFhPop0KjvalTmJu+fV48A7qUHP7JTzu8uA83KOlxjBEYrmVuhwoiRsz5XaVFBnYhZkVKEeSAApBLMAGqMY7xTGGcSk4mKDJVIHnE9ARojAOIlYZgdWebsVnnnb2q0J4/KJn2Vnnb8WFo/x7HeJswCnwBpV+XNgINgV8y7VtNxng9zyGAFzpZbbpAQyxN7TaGBGIw34ce464tPqe2ZLppkfrV0dxDPWvL2t8BAAD///nHg7gxBgAA"
         }
       ]
     },
@@ -22,11 +22,6 @@
   },
   "systemd": {
     "units": [
-      {
-        "contents": "[Unit]\nDescription=Data Volume\nDefaultDependencies=no\nConflicts=umount.target\nBefore=local-fs.target umount.target\nAfter=var.mount\n\n[Mount]\nWhat=/dev/%i\nWhere=/var/data\nType=ext4\n\n[Install]\nWantedBy=local-fs.target\n",
-        "enabled": false,
-        "name": "var-data@.mount"
-      },
       {
         "enabled": true,
         "name": "var-data@sdb.mount"

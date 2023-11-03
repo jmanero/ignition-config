@@ -52,6 +52,11 @@
       {
         "enabled": false,
         "name": "afterburn-sshkeys@core.service"
+      },
+      {
+        "contents": "[Unit]\nDescription=Data Volume\nDefaultDependencies=no\n\nConflicts=umount.target\nBefore=local-fs.target umount.target\nAfter=var.mount\n\n[Mount]\nWhat=/dev/%i\nWhere=/var/data\nType=ext4\n\n[Install]\nWantedBy=local-fs.target\n",
+        "enabled": false,
+        "name": "var-data@.mount"
       }
     ]
   }
