@@ -44,6 +44,3 @@ systemd:
     ## Disable afterburn installation of SSH keys from meta-data for metal platforms
     - name: afterburn-sshkeys@core.service
       enabled: false
-    - name: var-data@.mount
-      enabled: false
-      contents_local: ./share/var-data.mount

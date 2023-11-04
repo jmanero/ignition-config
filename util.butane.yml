@@ -16,10 +16,4 @@ storage:
       format: ext4
       path: /var/data
       wipe_filesystem: false
-      with_mount_unit: false
-
-systemd:
-  units:
-    ## Mount /dev/sda at /var/data
-    - name: var-data@sdb.mount
-      enabled: true
+      with_mount_unit: true
