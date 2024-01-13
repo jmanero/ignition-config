@@ -2,18 +2,16 @@
 variant: fcos
 version: 1.5.0
 
-###
-## Configure raspberry pis with an attached data disk
-###
 ignition:
   config:
     merge:
       - local: ./default.ign.json
+      # - source: https://jmanero.github.com/github-ssh-keys/ignition.json
 
-storage:
-  filesystems:
-    - device: /dev/sda
-      format: ext4
-      path: /var/data
-      wipe_filesystem: false
-      with_mount_unit: true
+systemd:
+  units:
+    ## Disable zezere units in fedora-iot distribution
+    # - name: zezere-ignition.timer
+    #   enabled: false
+    # - name: zezere-ignition.service
+    #   enabled: false
