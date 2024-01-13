@@ -9,5 +9,41 @@
       ]
     },
     "version": "3.4.0"
+  },
+  "passwd": {
+    "groups": [
+      {
+        "gid": 16,
+        "name": "sudo"
+      }
+    ]
+  },
+  "storage": {
+    "files": [
+      {
+        "path": "/etc/sudoers.d/10-nopasswd",
+        "contents": {
+          "compression": "",
+          "source": "data:;base64,IyMgUGFzc3dvcmQtbGVzcyBzdWRvIGZvciBzdXBlcnVzZXJzCiVzdWRvICAgQUxMPShBTEwpICAgTk9QQVNTV0Q6IEFMTAo="
+        },
+        "mode": 288
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "enabled": false,
+        "name": "zezere_ignition.timer"
+      },
+      {
+        "enabled": false,
+        "name": "zezere_ignition.service"
+      },
+      {
+        "enabled": false,
+        "name": "zezere_ignition_banner.service"
+      }
+    ]
   }
 }

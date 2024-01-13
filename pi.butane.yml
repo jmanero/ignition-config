@@ -8,10 +8,27 @@ ignition:
       - local: ./default.ign.json
       # - source: https://jmanero.github.com/github-ssh-keys/ignition.json
 
+passwd:
+  ## The IOT image does not have a sudo group or NOPASSWD policy configured
+  groups:
+    - name: sudo
+      gid: 16
+
+storage:
+  files:
+    - path: /etc/sudoers.d/10-nopasswd
+      mode: 0440
+      contents:
+        inline: |
+          ## Password-less sudo for superusers
+          %sudo   ALL=(ALL)   NOPASSWD: ALL
+
 systemd:
   units:
     ## Disable zezere units in fedora-iot distribution
-    # - name: zezere-ignition.timer
-    #   enabled: false
-    # - name: zezere-ignition.service
-    #   enabled: false
+    - name: zezere_ignition.timer
+      enabled: false
+    - name: zezere_ignition.service
+      enabled: false
+    - name: zezere_ignition_banner.service
+      enabled: false
