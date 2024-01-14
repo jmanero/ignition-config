@@ -15,6 +15,14 @@ passwd:
       gid: 16
 
 storage:
+  directories:
+    - path: /home/jmanero/.ssh
+      mode: 0700
+      user:
+        name: jmanero
+      group:
+        name: jmanero
+
   files:
     - path: /etc/sudoers.d/10-nopasswd
       mode: 0440
@@ -22,6 +30,18 @@ storage:
         inline: |
           ## Password-less sudo for superusers
           %sudo   ALL=(ALL)   NOPASSWD: ALL
+    
+    - path: /home/jmanero/.ssh/authorized_keys
+      mode: 0500
+      user:
+        name: jmanero
+      group:
+        name: jmanero
+      contents:
+        inline: |
+          sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILynl9LC0v7PMegGYM6J6WUBJ6b4h0BN7q2FjQd9POD+AAAABHNzaDo= jmanero+80916904@github.com
+          sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILnOoNh713fD8y4WCSQ1xenme81YSkZoBk2rSD+xFBe0AAAABHNzaDo= jmanero+91485583@github.com
+
 
 systemd:
   units:
