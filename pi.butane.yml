@@ -42,6 +42,12 @@ storage:
           sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILynl9LC0v7PMegGYM6J6WUBJ6b4h0BN7q2FjQd9POD+AAAABHNzaDo= jmanero+80916904@github.com
           sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILnOoNh713fD8y4WCSQ1xenme81YSkZoBk2rSD+xFBe0AAAABHNzaDo= jmanero+91485583@github.com
 
+    - path: /root/.ssh/authorized_keys
+      mode: 0500
+      contents:
+        inline: |
+          sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILynl9LC0v7PMegGYM6J6WUBJ6b4h0BN7q2FjQd9POD+AAAABHNzaDo= jmanero+80916904@github.com
+          sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILnOoNh713fD8y4WCSQ1xenme81YSkZoBk2rSD+xFBe0AAAABHNzaDo= jmanero+91485583@github.com
 
 systemd:
   units:

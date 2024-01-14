@@ -53,6 +53,14 @@
           "source": "data:;base64,H4sIAAAAAAAC/6zOsXKCMBgA4L1P4c7ZSyKB/EPvJKRSPYxytEdhQ01JRZKWaKs8fY+tQ8fu3/C5duqcnqoDoRTD3H4o45y+39tuEkVRlBjZp69yqGN8qsQSy+dHmiXwXRV02JPmUhI4j26Z3swJ0hh9hdu1apJyHayC4oWvgp2vEZfhJ1kcswNsN8IbPX+SQy3sw+TY1Ub11mMIcADInzfvZ33ZjYG7f7uZjZU6xLM3wW5+EecZvirTKYbLvK0sb0mfC++64Ar9eQPsM0rZ7PftJwAA///PPIQ3OAEAAA=="
         },
         "mode": 320
+      },
+      {
+        "path": "/root/.ssh/authorized_keys",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/6zOsXKCMBgA4L1P4c7ZSyKB/EPvJKRSPYxytEdhQ01JRZKWaKs8fY+tQ8fu3/C5duqcnqoDoRTD3H4o45y+39tuEkVRlBjZp69yqGN8qsQSy+dHmiXwXRV02JPmUhI4j26Z3swJ0hh9hdu1apJyHayC4oWvgp2vEZfhJ1kcswNsN8IbPX+SQy3sw+TY1Ub11mMIcADInzfvZ33ZjYG7f7uZjZU6xLM3wW5+EecZvirTKYbLvK0sb0mfC++64Ar9eQPsM0rZ7PftJwAA///PPIQ3OAEAAA=="
+        },
+        "mode": 320
       }
     ]
   },
