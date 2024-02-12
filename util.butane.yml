@@ -12,8 +12,9 @@ ignition:
 
 storage:
   filesystems:
-    - device: /dev/sdb
+    ## Mount /var on attached SSD
+    - path: /var
+      device: /dev/sdb
       format: ext4
-      path: /var/data
       wipe_filesystem: false
       with_mount_unit: true

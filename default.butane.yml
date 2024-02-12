@@ -6,7 +6,7 @@ version: 1.5.0
 ## Default configuration for all hosts
 ###
 storage:
-  ## Keep selinux re-labeling from failing on these missing paths
+  ## Keep selinux re-labeling from failing on paths missing from the current image
   directories:
     - path: /etc/systemd/system-preset
   files:
@@ -20,12 +20,28 @@ storage:
           [Resolve]
           MulticastDNS=yes
 
-    - path: /etc/NetworkManager/conf.d/mdns.conf
+    - path: /etc/systemd/network/99-eth-default.network
       overwrite: true
       contents:
         inline: |
-          [connection]
-          connection.mdns=2
+          [Match]
+          Name=en* eth*
+
+          [Network]
+          DHCP=yes
+          MulticastDNS=yes
+          LLMNR=no
+
+    - path: /etc/yum.repos.d/hashicorp.repo
+      overwrite: true
+      contents:
+        inline: |
+          [hashicorp]
+          name=Hashicorp Stable - $basearch
+          baseurl=https://rpm.releases.hashicorp.com/fedora/$releasever/$basearch/stable
+          enabled=1
+          gpgcheck=1
+          gpgkey=https://rpm.releases.hashicorp.com/gpg
 
 passwd:
   users:
@@ -37,10 +53,28 @@ passwd:
       groups:
         - sudo
       ssh_authorized_keys:
-        - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILynl9LC0v7PMegGYM6J6WUBJ6b4h0BN7q2FjQd9POD+AAAABHNzaDo= jmanero@oakwood.local"
+        - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILnOoNh713fD8y4WCSQ1xenme81YSkZoBk2rSD+xFBe0AAAABHNzaDo= jmanero@yk_19285130"
+        - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILynl9LC0v7PMegGYM6J6WUBJ6b4h0BN7q2FjQd9POD+AAAABHNzaDo= jmanero@yk_19285738"
 
 systemd:
   units:
     ## Disable afterburn installation of SSH keys from meta-data for metal platforms
     - name: afterburn-sshkeys@core.service
       enabled: false
+
+    ## Install packages and reboot
+    - name: install-packages.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Install packages after first-boot
+
+        Wants=network-online.target local-fs.target
+        After=network-online.target local-fs.target
+
+        [Service]
+        Type=oneshot
+        ExecStart=rpm-ostree install --reboot --idempotent systemd-networkd consul nomad vault
+
+        [Install]
+        WantedBy=default.target
