@@ -61,11 +61,6 @@
       {
         "enabled": false,
         "name": "afterburn-sshkeys@core.service"
-      },
-      {
-        "contents": "[Unit]\nDescription=Install packages after first-boot\n\nWants=network-online.target local-fs.target\nAfter=network-online.target local-fs.target\n\n[Service]\nType=oneshot\nExecStart=rpm-ostree install --reboot --idempotent systemd-networkd consul nomad vault\n\n[Install]\nWantedBy=default.target\n",
-        "enabled": true,
-        "name": "install-packages.service"
       }
     ]
   }

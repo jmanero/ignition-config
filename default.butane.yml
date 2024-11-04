@@ -23,25 +23,12 @@ storage:
     - path: /etc/systemd/network/99-eth-default.network
       overwrite: true
       contents:
-        inline: |
-          [Match]
-          Name=en* eth*
-
-          [Network]
-          DHCP=yes
-          MulticastDNS=yes
-          LLMNR=no
+        local: share/99-eth-default.network
 
     - path: /etc/yum.repos.d/hashicorp.repo
       overwrite: true
       contents:
-        inline: |
-          [hashicorp]
-          name=Hashicorp Stable - $basearch
-          baseurl=https://rpm.releases.hashicorp.com/fedora/$releasever/$basearch/stable
-          enabled=1
-          gpgcheck=1
-          gpgkey=https://rpm.releases.hashicorp.com/gpg
+        local: share/hashicorp.repo
 
 passwd:
   users:
@@ -61,20 +48,3 @@ systemd:
     ## Disable afterburn installation of SSH keys from meta-data for metal platforms
     - name: afterburn-sshkeys@core.service
       enabled: false
-
-    ## Install packages and reboot
-    - name: install-packages.service
-      enabled: true
-      contents: |
-        [Unit]
-        Description=Install packages after first-boot
-
-        Wants=network-online.target local-fs.target
-        After=network-online.target local-fs.target
-
-        [Service]
-        Type=oneshot
-        ExecStart=rpm-ostree install --reboot --idempotent systemd-networkd consul nomad vault
-
-        [Install]
-        WantedBy=default.target
