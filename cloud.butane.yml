@@ -24,6 +24,7 @@ passwd:
       ssh_authorized_keys:
         - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILnOoNh713fD8y4WCSQ1xenme81YSkZoBk2rSD+xFBe0AAAABHNzaDo= jmanero@yk_19285130"
         - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILynl9LC0v7PMegGYM6J6WUBJ6b4h0BN7q2FjQd9POD+AAAABHNzaDo= jmanero@yk_19285738"
+        - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIHD1pbSDpurSo9Hqzl7yHImS1hgWZUIiOVHb0tTY7t43AAAABHNzaDo= jmanero@meadowvale (YubiKey 5.4.3 ed25519-sk)"
 
 systemd:
   units:
