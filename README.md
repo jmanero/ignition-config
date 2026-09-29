@@ -14,6 +14,14 @@ Compile ignition JSON from butane YAML:
 % make
 ```
 
+### No `butane` distribution?
+
+Use `docker` or `podman`:
+
+```
+ BUTANE="docker run --rm -v $PWD:/data -w /data quay.io/coreos/butane:release" make
+```
+
 ## Usage
 
 ```

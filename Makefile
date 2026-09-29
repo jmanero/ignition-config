@@ -2,6 +2,8 @@
 BUTANE_YML    := $(wildcard *.butane.yml)
 IGNITION_JSON := $(BUTANE_YML:butane.yml=ign.json)
 
+BUTANE ?= /usr/bin/butane
+
 .PHONY: default clean
 default: $(IGNITION_JSON)
 clean:
@@ -11,4 +13,4 @@ clean:
 ## ign.json files (e.g. ignition.config.merge[].local) in submakes
 %.ign.json: %.butane.yml
 	grep '\./.*\.ign.json' $< && $(MAKE) $(shell grep -oh '\./.*\.ign.json' $<) || true
-	butane --files-dir $(@D) --output $@ --pretty $<
+	$(BUTANE) --files-dir $(@D) --output $@ --pretty $<
